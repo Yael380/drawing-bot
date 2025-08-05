@@ -1,0 +1,88 @@
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.4);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1050;
+}
+
+.save-dialog {
+  background-color: white;
+  border-radius: 10px;
+  padding: 24px 30px;
+  width: 320px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
+  animation: fadeInDialog 0.3s ease forwards;
+  display: flex;
+  flex-direction: column;
+}
+
+.save-dialog h3 {
+  margin: 0 0 16px 0;
+  font-size: 1.3rem;
+  text-align: center;
+}
+
+.save-dialog input[type="text"] {
+  padding: 8px 12px;
+  font-size: 1rem;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  margin-bottom: 20px;
+  outline-offset: 2px;
+}
+
+.buttons {
+  display: flex;
+  justify-content: space-between;
+}
+
+.buttons button {
+  padding: 10px 20px;
+  font-weight: bold;
+  border-radius: 6px;
+  border: none;
+  cursor: pointer;
+  flex: 1;
+  margin: 0 5px;
+  transition: background-color 0.2s ease;
+}
+
+.buttons button:first-child {
+  background-color: #dc3545; /* אדום */
+  color: white;
+}
+
+.buttons button:first-child:hover:not(:disabled) {
+  background-color: #c82333;
+}
+
+.buttons button:last-child {
+  background-color: #17a2b8; /* טורקיז */
+  color: white;
+}
+
+.buttons button:last-child:hover:not(:disabled) {
+  background-color: #138496;
+}
+
+.buttons button:disabled {
+  background-color: #aaa;
+  cursor: not-allowed;
+}
+
+@keyframes fadeInDialog {
+  from {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}

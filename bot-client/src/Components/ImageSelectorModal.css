@@ -1,0 +1,94 @@
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.4);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+}
+
+.image-selector-modal {
+  background-color: white;
+  border-radius: 12px;
+  padding: 24px;
+  width: 300px;
+  max-height: 80vh;
+  overflow-y: auto;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+  animation: fadeIn 0.3s ease-in-out;
+}
+
+.image-selector-modal h3 {
+  margin-top: 0;
+  font-size: 1.3rem;
+  text-align: center;
+}
+
+.image-selector-modal ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.image-selector-modal li {
+  margin-bottom: 12px;
+}
+
+.select-button {
+  width: 100%;
+  padding: 10px;
+  background-color: #17a2b8; /* טורקיז */
+  color: white;
+  font-weight: bold;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+  height: 37px;
+}
+
+.select-button:hover {
+  background-color: #138d9e;
+}
+
+.close-button {
+  margin-top: 16px;
+  width: 100%;
+  padding: 10px;
+  background-color: #6c757d;
+  color: white;
+  font-weight: bold;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.close-button:hover {
+  background-color: #5a6268;
+}
+
+.close-button:disabled {
+  background-color: #aaa;
+  cursor: not-allowed;
+}
+
+.loading {
+  text-align: center;
+  font-style: italic;
+}
+
+@keyframes fadeIn {
+  from {
+    transform: scale(0.9);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}

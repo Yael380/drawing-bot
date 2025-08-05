@@ -1,0 +1,83 @@
+form {
+  background-color: #ffffff;
+  border-radius: 16px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+  padding: 28px;
+  width: 340px;
+  font-family: 'Segoe UI', sans-serif;
+  text-align: center;
+  margin-top: 200px !important;
+}
+
+h2 {
+  color:#00758c;
+  margin-bottom: 24px;
+  font-weight: 700;
+  font-size: 24px;
+}
+
+input {
+  width: 100%;
+  padding: 12px 14px;
+  margin-bottom: 16px;
+  border: 1px solid #d0bfae;
+  border-radius: 10px;
+  font-size: 16px;
+  box-sizing: border-box;
+  transition: all 0.3s ease-in-out;
+  background-color: #fefcf9;
+}
+
+input:focus {
+  outline: none;
+  border-color: #217a8c;
+  box-shadow: 0 0 6px #d5c1aa;
+}
+
+button {
+  width: 100%;
+  background-color: #82c0cc;
+  color: white;
+  padding: 12px 0;
+  border: none;
+  border-radius: 10px;
+  font-size: 17px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+button:hover {
+  background-color: #8b5e3c;
+}
+
+p {
+  margin-top: 16px;
+  font-weight: 500;
+}
+
+p a {
+  color: #b07d4d;
+  text-decoration: underline;
+}
+
+p a:hover {
+  color: #8b5e3c;
+}
+
+@media (max-width: 480px) {
+  form {
+    margin: 40px 16px;
+    padding: 32px 24px;
+  }
+}
+/* ***** */
+/* 
+/* אפשר להוסיף אנימציה fade-in אם רוצים */
+@keyframes fade-in {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+.register-form{
+  align-items: center;
+  margin-left: 600px;
+}

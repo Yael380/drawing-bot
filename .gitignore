@@ -1,0 +1,15 @@
+# Ignore VS folders and build artifacts
+.vs/
+bin/
+obj/
+
+# Ignore user secrets and local config
+*.user
+*.suo
+appsettings.Development.json
+
+# Node
+node_modules/
+
+# Logs
+*.log
