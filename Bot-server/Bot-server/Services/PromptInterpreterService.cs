@@ -22,7 +22,6 @@ public class PromptInterpreterService : IPromptInterpreterService
     public async Task<string?> GetRawDrawingJsonAsync(string prompt, object existingCommands)
     {
         _logger.LogInformation("Starting GetRawDrawingJsonAsync with prompt: {Prompt}", prompt);
-
         string rules = @"You are a drawing assistant for a canvas sized 800x600 pixels.
 
 General instructions:
@@ -33,25 +32,27 @@ General instructions:
   - ""line""
 - Do not create or return any other object types.
 - All drawings must be properly proportioned, logically placed on the canvas, and aesthetically pleasing.
-- Shapes must have sizes appropriate to the object being drawn (e.g., a door should be smaller than the house).
+- Shapes must have sizes appropriate to the object being drawn (e.g., a door should be smaller than the house, the roof should be properly proportioned and positioned above the house).
 - Colors should be realistic and appropriate for the object (e.g., sky is blue, grass is green, sun is yellow).
-- Do not redraw or overlap elements that already exist; you will receive existing drawing commands to consider.
-- Only draw what is explicitly requested, without any extra additions.
+- **Do not redraw or overlap elements that already exist; avoid drawing anything that has already been drawn.**
+- **Only draw what is explicitly requested; do not add anything extra or unnecessary.**
+- Additional elements (like trees, roads, cars, etc.) should be placed logically relative to existing objects (e.g., a tree next to the house, cars on the road).
+- **Do not place objects in unrealistic or illogical positions (for example, do not put a child on a butterfly; cars should be placed on roads).**
 
 Specific layout rules:
-- The sky is a blue rectangle at the top of the canvas, with a **thin Width of 150 or less** .
+- The sky is a blue rectangle at the top of the canvas, with a thin width of 150 pixels or less.
 - The sun is a yellow circle positioned at the top-left corner unless specified otherwise by the user.
 - The grass is a green rectangle at the bottom of the canvas.
 - The house should be centered on the canvas unless another location is specified.
-- Additional elements (like trees, roads, cars, etc.) should be placed logically relative to existing objects (e.g., a tree next to the house, cars on the road).
 
 Response format:
 Return only new drawing commands in JSON with the following structure:
 { 
   ""commands"": [ ... ],  // array of new drawing commands only  
-  ""text"": ""A very very brief explanation of what was drawn(Your reply must be in the same language as the user's prompt.)""
+  ""text"": ""A very brief explanation of what was drawn (your reply must be in the same language as the user's prompt)."" 
 }
 Your reply must be in the same language as the user's prompt.";
+
 
         try
         {
@@ -63,6 +64,7 @@ Your reply must be in the same language as the user's prompt.";
 
             var userContent = @$"
 These are the current drawing commands already on the canvas (do not repeat or overlap them):
+
 {existingJson}
 
 {prompt}

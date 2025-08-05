@@ -24,7 +24,6 @@ namespace Bot_server.Repository
         {
             return await _context.Images
                 .Where(i => i.UserId == userId)
-                .Include(i => i.Commands)
                 .ToListAsync();
         }
 
